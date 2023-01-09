@@ -14,16 +14,19 @@ export const authApi = apiSlicer.injectEndpoints({
         try {
           const result = await queryFulfilled;
           localStorage.setItem(
-            "aith",
+            "auth",
             JSON.stringify({
               accessToken: result.data.accessToken,
               user: result.data.user,
             })
           );
-          dispatch(userLoggedIn(result.data));
-        } catch (error) {
-            
-        }
+          dispatch(
+            userLoggedIn({
+              accessToken: result.data.accessToken,
+              user: result.data.user,
+            })
+          );
+        } catch (error) {}
       },
     }),
     login: builder.mutation({
@@ -32,7 +35,6 @@ export const authApi = apiSlicer.injectEndpoints({
         method: "POST",
         body: data,
       }),
-      
     }),
   }),
 });
