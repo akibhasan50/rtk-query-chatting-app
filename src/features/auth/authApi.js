@@ -1,7 +1,7 @@
-import { apiSlicer } from "../apiSlice";
+import { apiSlice } from "../apiSlice";
 import { userLoggedIn } from "./authSlice";
 
-export const authApi = apiSlicer.injectEndpoints({
+export const authApi = apiSlice.injectEndpoints({
   //endpoints goes here
   endpoints: (builder) => ({
     register: builder.mutation({
