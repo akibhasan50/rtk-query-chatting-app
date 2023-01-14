@@ -20,15 +20,9 @@
     },
     {
       "email": "tonuakibhasan@gmail.com",
-      "password": "$2a$10$8NLIgW2vAL8vSYhyqGrNYeor4W20aBQ2LMjzJLbepE4.4hp.RVh5u",
+      "password": "$2a$10$u3dSnN2nmHE.FDLFSmRH/eSSNRNo4AJmahYfFfiLS1HkRxbwutix6",
       "name": "akib hasan",
       "id": 4
-    },
-    {
-      "email": "tonuakibhasan1@gmail.com",
-      "password": "$2a$10$wOqyqxB.T/wGP6S1Ua8njesHAw/p14RWls0MkXJ/k1Kw8q9KeT/DK",
-      "name": "akib hasan",
-      "id": 5
     }
   ],
   "conversations": [
