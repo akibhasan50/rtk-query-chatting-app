@@ -5,6 +5,7 @@ import Error from "../ui/Error";
 import moment from "moment";
 import getPartnerinfo from "../../utils/getPartnerinfo";
 import gravatarUrl from 'gravatar-url';
+import { Link } from "react-router-dom";
 
 export default function ChatItems() {
   const { user } = useSelector((state) => state.auth) || {};
@@ -25,16 +26,17 @@ export default function ChatItems() {
         <Error message={error?.data}></Error>
       </li>
     );
-  } else if (!isLoading && !isError & (conversations?.length === 0)) {
+  } else if (!isLoading && !isError && (conversations?.length === 0)) {
     content = <li className="m-2 text-center">No Conversation found</li>;
-  } else if (!isLoading && !isError & (conversations?.length > 0)) {
+  } else if (!isLoading && !isError && (conversations?.length > 0)) {
     content = conversations.map((conversation, index) => {
       const { message, id, timestamp,users } = conversation;
       const {name,email:partnerEmail} = getPartnerinfo(users, email);
       
       return (
         <li key={id}>
-          <ChatItem
+            <Link to={`/inbox/${id}`}>
+            <ChatItem
             avatar={gravatarUrl(partnerEmail,{
                 size:80
             })}
@@ -42,6 +44,8 @@ export default function ChatItems() {
             lastMessage={message}
             lastTime={moment(timestamp).fromNow()}
           />
+            </Link>
+      
         </li>
       );
     });
