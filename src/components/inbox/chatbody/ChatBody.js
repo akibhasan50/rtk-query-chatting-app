@@ -20,13 +20,12 @@ export default function ChatBody() {
       </div>
     );
   } else if (!isLoading && !isError && messages?.length === 0) {
-    content = <div>No messages found</div>;
+    content = <div className="p-10">No messages found</div>;
   } else if (!isLoading && !isError && messages?.length > 0) {
     content = (
       <>
         <ChatHead
-          avatar="https://cdn.pixabay.com/photo/2018/01/15/07/51/woman-3083383__340.jpg"
-          name="Akash Ahmed"
+      message={messages[0]}
         />
         <Messages messages={messages} />
         <Options />
