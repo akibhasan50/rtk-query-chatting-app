@@ -2,7 +2,7 @@ import { useSelector } from "react-redux";
 import gravatarUrl from "gravatar-url";
 export default function ChatHead({ message }) {
   const { user } = useSelector((state) => state.auth) || {};
-  const { email } = user || {};
+  const { email } = user || {}; 
   const { sender, receiver } = message || {};
 
   const partnerEmail = sender?.email === email ? receiver?.email : sender?.email;
